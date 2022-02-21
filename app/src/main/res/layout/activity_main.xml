@@ -1,18 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C95412F3"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvGrados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="190dp"
+        android:text="@string/text_grados"
+        android:textColor="@color/color_grados"
+        android:textSize="70sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvCiudad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvGrados"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="-80dp"
+        android:text="@string/text_ciudad"
+        android:textColor="@color/color_ciudad"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/tvEstatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_below="@id/tvCiudad"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="109dp"
+        android:layout_marginBottom="-340dp"
+        android:text="@string/text_estatus"
+        android:textColor="@color/color_estatus"
+        android:textSize="24sp" />
+</RelativeLayout>
