@@ -10,4 +10,5 @@
     <color name="color_grados">#FFFFFFFF</color>
     <color name="color_ciudad">#DCDADA</color>
     <color name="color_estatus">#EBD4BFFA</color>
+    <color name="color_botton_textCiudad">#ED95B3</color>
 </resources>

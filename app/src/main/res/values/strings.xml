@@ -3,4 +3,13 @@
     <string name="text_grados">27°</string>
     <string name="text_ciudad">Felipe Carrillo Puerto</string>
     <string name="text_estatus">Soleado</string>
+    <string name="text_bienvenida">
+        Bienvenido a mi app del clima, selecciona la opcion de abajo
+
+    </string>
+    <string name="botton_FCP">Clima de la ciudad de Felipe C. Puerto</string>
+    <string name="botton_PMorelos">Clima de la ciudad de Puerto Morelos</string>
+    <string name="botton_JMariaMorelos">Clima de la ciudad de Jose Maria Morelos</string>
+    <string name="botton_Chetumal">Clima de la ciudad de Chetumal </string>
+
 </resources>

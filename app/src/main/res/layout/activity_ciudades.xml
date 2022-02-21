@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CE4114AE"
+    android:orientation="vertical"
+    tools:context=".ciudades">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="380dp"
+        android:layout_height="30dp"
+        android:layout_margin="16dp"
+        android:text="@string/text_bienvenida"
+        android:textColor="#F6F5F6" />
+
+    <Button
+        android:id="@+id/bFCP"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/botton_FCP"
+        android:textColor="@color/color_botton_textCiudad" />
+
+    <Button
+        android:id="@+id/bPMorelos"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/botton_PMorelos"
+        android:textColor="@color/color_botton_textCiudad" />
+
+    <Button
+        android:id="@+id/bJMMorelos"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/botton_JMariaMorelos"
+        android:textColor="@color/color_botton_textCiudad" />
+
+    <Button
+        android:id="@+id/bChetumal"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/botton_Chetumal"
+        android:textColor="@color/color_botton_textCiudad" />
+</LinearLayout>
