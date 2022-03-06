@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 
-class ciudades : AppCompatActivity() {
+class Ciudades : AppCompatActivity() {
 
-    val TAG = "com.vidamrr.appclima.ciudades.ciudad"
+    val TAG = "com.vidamrr.appclima.ciudades.CIUDAD"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ciudades)
@@ -20,22 +20,22 @@ class ciudades : AppCompatActivity() {
 
         bFelipe.setOnClickListener(View.OnClickListener {
             val intent = Intent( this, MainActivity:: class.java)
-            intent.putExtra(TAG,"Ciudad-felipeCP")
+            intent.putExtra(TAG,"3527639")
             startActivity(intent)
         })
         bPMorelos.setOnClickListener(View.OnClickListener {
             val intent = Intent( this, MainActivity:: class.java)
-            intent.putExtra(TAG,"Ciudad-PuertoMorelos")
+            intent.putExtra(TAG,"3822762")
             startActivity(intent)
         })
         bJMM.setOnClickListener(View.OnClickListener {
             val intent = Intent( this, MainActivity:: class.java)
-            intent.putExtra(TAG,"Ciudad-JoseMariaMorelos")
+            intent.putExtra(TAG,"3527624")
             startActivity(intent)
         })
         bChetumal.setOnClickListener(View.OnClickListener {
             val intent = Intent( this, MainActivity:: class.java)
-            intent.putExtra(TAG,"Ciudad-Chetumal")
+            intent.putExtra(TAG,"3531023")
             startActivity(intent)
         })
 

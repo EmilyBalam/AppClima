@@ -2,54 +2,58 @@ package com.example.appclima
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
 
-    var tvciudad:TextView?=null
-    var tvgrados:TextView?=null
-    var tvestatus:TextView?=null
+    var tvCiudad:TextView? = null
+    var tvGrados:TextView? = null
+    var tvEstatus:TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        tvciudad= findViewById(R.id.tvCiudad)
-        tvgrados=findViewById(R.id.tvGrados)
-        tvestatus=findViewById(R.id.tvEstatus)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-         val ciudad = intent.getStringExtra("com.vidamrr.appclima.ciudades.ciudad" )
+        tvCiudad= findViewById(R.id.tvCiudad)
+        tvGrados=findViewById(R.id.tvGrados)
+        tvEstatus=findViewById(R.id.tvEstatus)
 
-        val ciudadFCP = Ciudad("Felipe Carrillo Puerto", 27,"Despejado")
-        val ciudadPuertoM = Ciudad("Puerto Morelos", 30,"Soleado")
-        val ciudadJoseMM = Ciudad("Jose Maria Morelos", 10,"Nublado")
-        val ciudadChe = Ciudad("Chetumal", 18,"Lloviendo")
+         val ciudad = intent.getStringExtra("com.vidamrr.appclima.ciudades.CIUDAD" )
 
-        if(ciudad == "Ciudad-felipeCP"){
-            tvciudad?.text= ciudadFCP.nombre
-            tvgrados?.text= ciudadFCP.grados.toString() + "°"
-            tvestatus?.text = ciudadFCP.estatus
-
-        }else if(ciudad == "Ciudad-PuertoMorelos"){
-            tvciudad?.text= ciudadPuertoM.nombre
-            tvestatus?.text = ciudadPuertoM.estatus
-            tvgrados?.text= ciudadPuertoM.grados.toString() + "°"
-
-        }else if(ciudad =="Ciudad-JoseMariaMorelos"){
-            tvciudad?.text= ciudadJoseMM.nombre
-            tvestatus?.text = ciudadJoseMM.estatus
-            tvgrados?.text= ciudadJoseMM.grados.toString() + "°"
-
-        }else if(ciudad == "Ciudad-Chetumal"){
-            tvciudad?.text= ciudadChe.nombre
-            tvestatus?.text = ciudadChe.estatus
-            tvgrados?.text= ciudadChe.grados.toString() + "°"
-
-        }else {
-            Toast.makeText(this,"No se encontro la informacion",Toast.LENGTH_SHORT).show()
+        if(Network.hayRed(this)){
+            //ejecutar solicitud HTTP
+            //6fa58550b370296639ca6d9cb0225959
+            //Felipe carrillo Puerto: 3527639
+            solicitudHTTPVolley("https://api.openweathermap.org/data/2.5/weather?id="+ciudad+"&appid=6fa58550b370296639ca6d9cb0225959&units=metric&lang=es")
+        }else{
+            Toast.makeText(this,"No hay red",Toast.LENGTH_SHORT).show()
         }
-
     }
+
+    private fun solicitudHTTPVolley(url:String){
+        val queue =  Volley.newRequestQueue(this)
+        val solicitud = StringRequest(Request.Method.GET,url, Response.Listener <String>{
+                response ->
+            try{
+                Log.d("solicitudHTTPVolley", response)
+                val gson= Gson()
+                val ciudad=gson.fromJson(response,Ciudad::class.java)
+                tvCiudad?.text= ciudad.name
+                tvGrados?.text= ciudad.main?.temp.toString()+"°"
+                tvEstatus?.text =ciudad.weather?.get(0)?.description
+            }catch (e:Exception){
+
+            }
+        }, Response.ErrorListener {  } )
+        queue.add(solicitud)
+    }
+
 }
